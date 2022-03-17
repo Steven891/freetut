@@ -1,0 +1,23 @@
+# import statements
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+
+# Declare variables and setup services
+driverService = Service('C:/webdrivers/chromedriver.exe')   
+# 1. Passes the chromedriver path to the service object
+# 2. stores the service object in the s variable
+driver = webdriver.Chrome(service=driverService)            
+# 1. Passes service object s into the webdriver.Chrome  
+# 2. Stores object in driver variable 
+
+# Body (actually doing stuff)
+driver.maximize_window()                # maximizes the browser window
+driver.get("https://www.google.com")    # navigates to google.com
+myPageTitle = driver.title              
+# gets the title of the web page stores in myPageTitle
+print(myPageTitle)                      # prints myPageTitle to Console
+assert "Google" in myPageTitle          
+# checks myPageTitle to ensure it contains Google
+
+# clean up
+driver.quit() 
